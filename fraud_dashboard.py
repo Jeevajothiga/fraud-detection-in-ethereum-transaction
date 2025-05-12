@@ -148,7 +148,7 @@ if st.session_state.deploy_clicked and wallet_address:
                                                     margin=dict(b=20, l=5, r=5, t=40),
                                                     xaxis=dict(showgrid=False, zeroline=False),
                                                     yaxis=dict(showgrid=False, zeroline=False)
-                                                    )
+                                                    ))
 
                 st.plotly_chart(fig_net, use_container_width=True)
             else:
