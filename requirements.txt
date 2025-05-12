@@ -5,4 +5,5 @@ networkx
 plotly
 requests
 scikit-learn
-sklearn
+matplotlib
+numpy
