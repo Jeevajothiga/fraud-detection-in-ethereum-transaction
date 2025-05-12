@@ -5,3 +5,4 @@ networkx
 plotly
 requests
 scikit-learn
+sklearn
