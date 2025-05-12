@@ -4,4 +4,4 @@ pytz
 networkx
 plotly
 requests
-sklearn
+scikit-learn
