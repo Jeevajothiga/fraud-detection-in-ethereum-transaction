@@ -143,9 +143,13 @@ if st.session_state.deploy_clicked and wallet_address:
                 node_trace = go.Scatter(x=node_x, y=node_y, mode='markers+text', text=node_text,
                                         marker=dict(color='skyblue', size=10, line=dict(width=2)), hoverinfo='text')
                 fig_net = go.Figure(data=[edge_trace, node_trace],
-                                    layout=go.Layout(title='Transaction Network',
-                                                     titlefont_size=16, margin=dict(b=20, l=5, r=5, t=40),
-                                                     xaxis=dict(showgrid=False), yaxis=dict(showgrid=False)))
+                                    layout=go.Layout(
+                                                    title=dict(text='Transaction Network', font=dict(size=16)),
+                                                    margin=dict(b=20, l=5, r=5, t=40),
+                                                    xaxis=dict(showgrid=False, zeroline=False),
+                                                    yaxis=dict(showgrid=False, zeroline=False)
+                                                    )
+
                 st.plotly_chart(fig_net, use_container_width=True)
             else:
                 st.info("No data available for network graph.")
