@@ -28,19 +28,15 @@ This project detects fraud in Ethereum transactions by fetching wallet data from
    cd ethereum-fraud-detection
 Install required Python packages:
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
+  ```bash
+  pip install -r requirements.txt
 Usage
 Obtain your Etherscan API key and update the ETHERSCAN_API_KEY variable in the script.
 
-Run the fraud detection script:
+run the fraud detection script:
 
-bash
-Copy
-Edit
-python fraud_detection.py
+  ```bash
+  python fraud_detection.py
 To analyze a different wallet, update the wallet_address variable in the script.
 
 Code Breakdown
