@@ -118,7 +118,7 @@ if st.session_state.deploy_clicked and wallet_address:
             fraud_cases = df_filtered[df_filtered.get('is_fraud') == 1] if 'is_fraud' in df_filtered.columns else pd.DataFrame()
             st.markdown(f"**💰 Filtered Transactions:** {len(df_filtered)} | 🚨 Fraud Cases: {len(fraud_cases)}")
             if not df_filtered.empty:
-                st.markdown(f"💎 **Highest Amount Transferred:** `{df_filtered['value'].max():,.4f}` ETH")
+                st.markdown(f"💎 **Highest Amount Transferred:** {df_filtered['value'].max():,.4f} ETH")
             if not fraud_cases.empty and 'fraud_type' in fraud_cases.columns:
                 st.markdown(f"**Detected Fraud Types:** {fraud_cases['fraud_type'].value_counts().to_dict()}")
 
@@ -143,13 +143,9 @@ if st.session_state.deploy_clicked and wallet_address:
                 node_trace = go.Scatter(x=node_x, y=node_y, mode='markers+text', text=node_text,
                                         marker=dict(color='skyblue', size=10, line=dict(width=2)), hoverinfo='text')
                 fig_net = go.Figure(data=[edge_trace, node_trace],
-                                    layout=go.Layout(
-                                                    title=dict(text='Transaction Network', font=dict(size=16)),
-                                                    margin=dict(b=20, l=5, r=5, t=40),
-                                                    xaxis=dict(showgrid=False, zeroline=False),
-                                                    yaxis=dict(showgrid=False, zeroline=False)
-                                                    ))
-
+                                    layout=go.Layout(title='Transaction Network',
+                                                     titlefont_size=16, margin=dict(b=20, l=5, r=5, t=40),
+                                                     xaxis=dict(showgrid=False), yaxis=dict(showgrid=False)))
                 st.plotly_chart(fig_net, use_container_width=True)
             else:
                 st.info("No data available for network graph.")
@@ -185,4 +181,4 @@ if st.session_state.deploy_clicked and wallet_address:
                     data=fraud_cases.to_csv(index=False),
                     file_name=f"fraud_report_{wallet_address[:6]}.csv",
                     mime="text/csv"
-                )
+                )  
